@@ -2,8 +2,7 @@ from flask import Flask, request
 import numpy as np
 import pandas as pd
 import pickle
-from tensorflow.keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 from keras.models import load_model
 import re
 from flask import Flask, request, jsonify, redirect, url_for
@@ -17,9 +16,13 @@ conn.close()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
-model = load_model("test_model1.h5")
-tokenizer = Tokenizer()  # Use a fresh tokenizer
-max_sequence_length = 5000  # can be changed
+model = load_model("conv1d_model.h5")
+
+# Load the tokenizer from file
+with open('tokenizer.pkl', 'rb') as f:
+    tokenizer = pickle.load(f)
+
+max_sequence_length = 100  # can be changed
 DATABASE = 'database.db'
 
 def get_db():
@@ -76,7 +79,7 @@ def success():
                 prediction = model.predict(preprocessed_input)
                 predictions.append(prediction)
 
-            is_ponzi = np.array(predictions) > 0.5
+            is_ponzi = np.array(predictions) > 0.05
             result = ["Ponzi scheme" if ponzi else "Not a Ponzi scheme" for ponzi in is_ponzi]
 
             return {"result": result}

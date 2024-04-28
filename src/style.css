@@ -1,90 +1,11 @@
-body {
-    font-family: Arial, sans-serif;
-    background-image: url('image.jpg'); 
-    background-color: #f1f1f1;
-    background-size:cover;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  height: 100%;
+  width: 100%;
   
-.div {
-    padding: 50px; 
-    border-radius: 50px;
-    background-color: rgba(0, 0, 0, 0.3); /* Adjust transparency as needed */
-    backdrop-filter: saturate(180%) blur(10px);
-    box-shadow:20px 20px 50px rgba(0, 0, 0, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.25);
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-
-  }
-
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #dadce0; /* Google's grey for headings */
-  }
-  
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #dadce0; /* Google's grey for headings */
-  }
-  
-form {
-    font-size:large;
-    color:#dadce0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  
-input[type="text"],
-input[type="password"] {
-    padding: 10px;
-    color: #dadce0;
-    background-color: transparent;
-    margin: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.5); 
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-input[type="text"]:hover,
-input[type="password"]:hover{
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
-
-    }
-
-input:focus{
-  outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
-
+  background: rgb(8,92,71);
+background: radial-gradient(circle, rgba(8,92,71,1) 0%, rgba(72,87,209,0.9921218487394958) 100%);
 }
-button {
-    padding: 12px 20px;
-    color: #fff;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: box-shadow 0.2s ease;
-  }
-  
-button:hover {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.15);
-  }
-  
-button:active {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  
-p {
-    color: #ea4335; 
-    margin: 5px;
-  }
-  
